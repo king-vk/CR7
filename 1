@@ -21,6 +21,15 @@ printf("The no.of characters = %d\n",cc);
 printf("The no.of spaces = %d\n",sc); 
 printf("The no.of words = %d\n",wc);
 }
+OUTPUT :
+lex 1a.l
+cc lex.yy.c -ll
+./a.out
+Enter a filename:
+ex.txt
+The no of characters = 10
+The no of spaces = 1
+The no of words = 2
 B)
 %{
 #include <stdio.h>
@@ -38,4 +47,14 @@ int main()
  printf("comment=%d\n", com);
  fclose(yyout);
  return 0;
+}
+OUTPUT:
+lex Prg1B.l
+cc lex.yy.c -ll
+./a.out
+#include<stdio.h>
+int main()
+{
+// Simple Program
+Printf(" Hii ");
 }
