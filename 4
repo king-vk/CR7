@@ -32,3 +32,6 @@ int yylex(void)
     if(isdigit(c)) return digit;
     return c;
 }
+yacc 4.y
+cc y.tab.c
+./a.out
