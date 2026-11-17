@@ -1,0 +1,47 @@
+#include <stdio.h>
+%}
+
+%%
+
+[01] + {
+        int z = 0, o = 0;
+
+        /* Count number of 0s and 1s */
+        for(int i = 0; yytext[i] != '\0'; i++)
+        {
+            if(yytext[i] == '0')
+                z++;
+            else
+                o++;
+        }
+
+        /* DFA acceptance condition */
+        if(z % 2 == 0 && o % 2 == 0)
+            printf("Accepted: Even number of 0s and even number of 1s\n");
+        else
+            printf("Rejected: Number of 0s or 1s is odd\n");
+      }
+
+.* {
+        printf("Invalid string\n");
+      }
+
+%%
+
+int yywrap()
+{
+    return 1;
+}
+
+int main()
+{
+    printf("Enter a string containing only 0 and 1: ");
+    yylex();
+    return 0;
+}
+
+Output:
+Save as even.l and run:
+lex even.l
+gcc lex.yy.c -o even
+./even
